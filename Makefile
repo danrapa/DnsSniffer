@@ -1,7 +1,7 @@
 # Makefile for DNS sniffer
 
 CC       := gcc
-CFLAGS   := -std=gnu11 -O2 -Wall -Wextra 
+CFLAGS   := -std=gnu11 -O2 -Wall -Wextra
 LDFLAGS  := -lpcap
 
 SRC      := dnsSnifferAgent.c

@@ -73,7 +73,7 @@ static int skip_name(const uint8_t *msg, int msg_len, const uint8_t *ptr) {
         uint8_t octet = *ptr;
         if (octet == 0) {
             // Null label: end of name
-            if (!jumped) len++; 
+            if (!jumped) len++;
             break;
         }
 
@@ -335,7 +335,7 @@ int main(int argc, char *argv[]) {
         return EXIT_FAILURE;
     }
 
-    // Query the data-link (OSI layer 2) header type for the opened capture. 
+    // Query the data-link (OSI layer 2) header type for the opened capture.
     // We need this to know how many bytes to skip before the IP header.
     g_linktype = pcap_datalink(g_handle);
 
