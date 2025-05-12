@@ -46,16 +46,14 @@ make
 
 ## Usage
 
-# Run on default "any" interface
-sudo ./dnsSniffer
+Run on default "any" interface
+    sudo ./dnsSniffer
+Or specify one interface (e.g. eth0, wlan0, enp0s3)
+    sudo ./dnsSniffer <Interface>
+then, on another terminal run:
+    ping google.com
+you'll see:
 
-# Or specify one interface (e.g. eth0, wlan0, enp0s3)
-sudo ./dnsSniffer <Interface>
-
-# then, on another terminal run:
-ping google.com
-
-# you'll see:
 Domain: google.com
 
   IPv4:
