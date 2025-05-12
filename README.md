@@ -42,6 +42,3 @@ sudo apt install -y libpcap-dev
 git clone https://github.com/<your-user>/<your-repo>.git
 cd <your-repo>
 make
-
-# (Optional) install to /usr/local/bin
-sudo make install
