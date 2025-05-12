@@ -39,6 +39,31 @@ sudo apt update
 sudo apt install -y libpcap-dev
 
 # Clone & build
-git clone https://github.com/<your-user>/<your-repo>.git
-cd <your-repo>
+git clone https://github.com/danrapa/DnsSniffer.git 
+cd DnsSniffer
 make
+```
+
+## Usage
+
+# Run on default "any" interface
+sudo ./dnsSniffer
+
+# Or specify one interface (e.g. eth0, wlan0, enp0s3)
+sudo ./dnsSniffer <Interface>
+
+# then, on another terminal run:
+ping google.com
+
+# you'll see:
+Domain: google.com
+
+  IPv4:
+    142.250.75.206
+
+Domain: google.com
+
+  IPv6:
+    2a00:1450:4028:80b::200e
+
+
