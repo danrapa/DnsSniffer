@@ -1,2 +1,2 @@
-# DnsSniffer
-This Repository is an implementation of a DNS sniffer
+# SamDnsSniffer
+This repository is an implementation of a DNS sniffer
