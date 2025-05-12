@@ -14,10 +14,6 @@
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Example Output](#example-output)
-- [How It Works](#how-it-works)
-- [Contributing](#contributing)
-- [License](#license)
 
 ---
 
