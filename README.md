@@ -42,13 +42,14 @@ make
 
 ## Usage
 
-Run on default "any" interface
+```bash
+# Run on default "any" interface
     sudo ./dnsSniffer
-Or specify one interface (e.g. eth0, wlan0, enp0s3)
+# Or specify one interface (e.g. eth0, wlan0, enp0s3)
     sudo ./dnsSniffer <Interface>
-then, on another terminal run:
+# then, on another terminal run:
     ping google.com
-you'll see:
+# you'll see:
 
 Domain: google.com
 
@@ -59,5 +60,5 @@ Domain: google.com
 
   IPv6:
     2a00:1450:4028:80b::200e
-
+```
 
