@@ -52,6 +52,7 @@ static int    g_linktype = -1;
  * Signal handler for SIGINT (Ctrl-C).  Breaks out of pcap_loop cleanly.
  */
 static void handle_sigint(int signum) {
+    (void)signum;
     if (g_handle) pcap_breakloop(g_handle);
 }
 
@@ -123,10 +124,13 @@ static void parse_name(const uint8_t *msg, int msg_len, const uint8_t *ptr,
         }
         // Copy label into buffer
         offset++;
-        if (pos + len >= buf_len) break;
-        memcpy(buf + pos, msg + offset, len);
-        pos += len;
-        buf[pos++] = '.';
+        if (!jumped) {
+            if (pos + len < buf_len) {
+                memcpy(buf + pos, msg + offset, len);
+                pos += len;
+                buf[pos++] = '.';
+            }
+        }
         offset += len;
     }
     // Remove trailing dot, null-terminate
@@ -258,9 +262,8 @@ static void packet_handler(uint8_t *args,
     /* DLT_RAW, DLT_IPV4: link_hdr=0 */
 
     const uint8_t *data = pkt + link_hdr;
-    int datalen = hdr->caplen - link_hdr;
-    if (datalen <= 0) return;
-
+    if (hdr->caplen <= (u_int32_t)link_hdr) return;
+    size_t datalen = (size_t)hdr->caplen - link_hdr;
     /* IPv4 */
     if ((data[0] >> 4) == 4 && datalen >= sizeof(struct ip)) {
         struct ip   *ip4       = (struct ip*)data;
